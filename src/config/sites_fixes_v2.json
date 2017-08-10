@@ -262,5 +262,14 @@
                 "#watch-appbar-playlist * { -webkit-filter: none !important; }"
             ]
         }
+        {
+            "url": "movie.douban.com",
+            "selectors": [
+                "div.avatar",
+            ],
+            "rules": [
+                "div.avatar { -webkit-filter: none !important; }"
+            ]
+        }
     ]
 }
