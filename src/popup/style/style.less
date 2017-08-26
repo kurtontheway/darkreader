@@ -11,6 +11,7 @@
 }
 
 @import "_variables.less";
+@import "_dev_tools.less";
 @import "_font_select.less";
 @import "_site_list.less";
 @import "_tab_panel.less";
@@ -22,7 +23,8 @@
 ------------*/
 
 html {
-    height: auto;
+    height: initial;
+    overflow: hidden;
 }
 
 .Window, body {
@@ -33,7 +35,7 @@ html {
     font-size: 75%; // Chrome Extension font size
     height: @size-content-height;
     margin: 0;
-    padding: 1.5em;
+    padding: @size-content-padding;
     position: relative;
     width: @size-content-width;
 
@@ -53,7 +55,7 @@ html {
 #logo {
     display: inline-block;
     flex: none;
-    height: 2em;
+    height: @size-logo-height;
 }
 
 
@@ -117,7 +119,7 @@ html {
         width: 100%;
         word-break: break-word;
         
-        &:before {
+        &::before {
             color: @color-input-fore;
             content: "Toggle ";
         }
@@ -180,7 +182,7 @@ html {
     > input[type=checkbox] {
         &:checked + .check {
             // Bigger check-mark
-            &:before {
+            &::before {
                 background-color: @color-fore;
                 height: 0.25em;
                 left: 0.25em;
@@ -188,7 +190,7 @@ html {
                 width: 0.5em;
             }
 
-            &:after {
+            &::after {
                 background-color: @color-fore;
                 height: 0.25em;
                 left: 0.75em;
@@ -205,8 +207,8 @@ html {
         margin: 0;
         width: @size-control-inner;
         // Cross
-        &:before,
-        &:after {
+        &::before,
+        &::after {
             background-color: @color-input-fore-placeholder;
             content: "";
             display: inline-block;
@@ -219,11 +221,11 @@ html {
             width: 1.5em;
         }
 
-        &:before {
+        &::before {
             transform: skewY(45deg);
         }
 
-        &:after {
+        &::after {
             transform: skewY(-45deg);
         }
     }
@@ -290,5 +292,20 @@ html {
         &:active {
             background-color: @color-active;
         }
+    }
+}
+
+
+/*------------
+    Footer
+-------------*/
+
+#footer {
+    .description {
+        margin-bottom: 0.25em;
+    }
+    .Button {
+        border: @size-border solid @color-border;
+        cursor: pointer;
     }
 }
